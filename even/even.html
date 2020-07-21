@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // function aa(){
+        //     alert(3);
+        // }
+        // function aa(){
+        //     alert(1);
+        // }
+    </script>
+    <div class="one" onclick=""></div>
+    <!-- <div class="one" onclick="(function aa(){alert(1)})()"></div> -->
+
+    <script>
+        //混排的方式，js不多见
+        //vue
+        //基于对象的，基于事件的弱类型的解释语言
+        //事件  鼠标事件  键盘事件  浏览器自带的事件
+        //程序能和用户进行交互
+        /*
+            鼠标事件
+            click 单击 点击
+            doubleclick  双击
+            mouseover 鼠标在……之上
+            mouseout  鼠标离开
+            mousedown  按下鼠标左键
+            mouseup   按下鼠标右键
+            mousemove  当鼠标移动
+            鼠标右键事件，有兼容性问题
+            鼠标滚轮事件  兼容
+
+            键盘事件
+            当键盘按下  当键盘抬起
+            浏览器自带的事件
+
+            onload   onscroll  onreadystatechange  ajax
+
+            事件的构成
+            1.目标对象  事件源 （谁）
+            2.事件 （交互 动作）
+            3.事件处理程序  （干什么事情）
+            4.事件对象
+
+            如何注册（添加）一个事件  3种方式
+        */
+        //1.直接量方式
+        var div=document.querySelector(".one");
+        // //给div方法添加了一个特殊的方法
+        // div.onclick=function(){
+                // alert(1);
+        // }
+        // div.onclick();
+
+
+        //2.通过标准方式
+        // var div =document.querySelector(".one");
+
+        // div.addEventListener("mousedown",function(){
+        //     console.log("down");
+        // },false)//面试 笔试 true 
+        // div.addEventListener("mouseup",function(){
+        //     console.log("up");
+        // },false)
+        // div.addEventListener("click",function(){
+        //     console.log("click");
+        // },false)
+    // 3.混排的方式，js不多见
+        // onclick="(function aa(){alert(1)})()";
+
+        /*
+        两种注册方式的优劣势
+        1.通过直接量的方式定义事件，同一个事件只能有同一个事件处理程序,否则后面,会将前面的事件代替
+        2.通过标准的定义事件的方式,可以让同一个事件执行不同的事件处理程序
+        3.通过直接量的方式定义事件，通过直接量=null的方式，来注销
+        4.通过标准的定义事件的方式，通过addEventListener
+        */
+        var div=document.querySelector(".one");
+        // div.onclick=function(){
+        //     alert("付款")//事件的注册
+        //     div.onclick=null;//这个点击只能执行一次，事件的注销
+        // }
+        // function move(){
+        //     alert(1);
+        //     div.removeEventListener("click",move);
+        // }
+
+    </script>
+
+</body>
+</html>

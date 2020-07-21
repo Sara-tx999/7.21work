@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 460px;
+            height: 640px;
+            /* border: 1px solid red; */
+            margin: 50px 100px;
+        }
+        .mbox{
+            width:460px ;
+            height:500px ;
+            /* border: 1px solid blue; */
+            position: relative;
+
+        }
+        .mbox img{
+            width: 100%;
+            height: 100%;
+        }
+        .mark{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            opacity: .5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* display: none; */
+            z-index: 5;
+        }
+        .imgList{
+            width: 460px;
+            height: 120px;
+            /* border: 1px solid black; */
+            margin-top: 20px;
+        }
+        .imgList ul{
+            text-align: center;
+            list-style: none;
+            width: 100%;
+            height: 100%;
+        }
+        .imgList ul li{
+            display: inline-block;
+            margin: 0 0 0 16px;
+            padding-top: 12px;
+        }n
+        .imgList ul li a{
+            float: left;
+            position: relative;
+            height: 70px;
+            width: 70px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .imgList ul li a:hover{
+            border: 2px solid black;
+        }
+
+        .imgList ul li a img{
+            position: relative;
+            max-width: 70px;
+            max-height: 70px;
+        }
+        .bbox{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 565px;
+            top: 100px;
+            background: #f6f6f6;
+            display: none; 
+             overflow: hidden;
+             float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="mbox">
+            <img src="image/m1.png" alt="">
+            <div class="mark"></div>
+        </div>
+        <div class="imgList">
+            <ul>
+                <li class="item">
+                    <a href="#">
+                        <img src="image/m1.png" alt="">
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" >
+                        <img src="image/m2.png" alt="">
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <img src="image/m3.png" alt="">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="bbox">
+            <img src="image/m1.png" alt="">
+        </div>
+    </div>
+    <!-- <script src="3.js"></script> -->
+
+    <script src="3.js"></script>
+    <script>
+         var dragObj=new drag(".mark");
+        dragObj.x=true;
+        dragObj.y=true;
+        dragObj.max.x1=0;
+        dragObj.max.y1=0;
+        dragObj.max.x2=410;
+        dragObj.max.y2=450;
+        dragObj.move();
+    </script>
+</body>
+</html>

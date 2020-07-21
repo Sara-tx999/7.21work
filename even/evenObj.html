@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box"> -->
+        <div>
+
+        </div>
+
+    </div>
+    <script>
+        /*
+            事件的构成
+            1.事件源  2.事件（动作）  3.事件处理程序  4.事件对象（用来记录事件发生的时候的一些详细信息）
+            当我点击的时候，我校获取一下鼠标的位置->事件对象->什么地方
+            时间处理程序的第一个参数,ev这个对象里记录详细信息
+
+            鼠标事件的事件对象
+            1.鼠标相当于屏幕的距离
+            2.鼠标相当于浏览器的距离
+            3.相对于事件源的距离
+            4.获取事件源
+
+            拖拽需求   
+            1.动作  按下  移动  抬起
+            2.如何让div跟随鼠标移动
+        */
+        // var div=document.querySelector("div");
+        // div.onclick=function(ev){
+            //1.
+            // console.log(ev.screenX);
+            // console.log(ev.screenY);
+            //2.
+            // console.log("ev.clientX");
+            // console.log("ev.clientY");
+            //3.
+            // console.log(ev.offsetX);
+            // console.log(ev.offsetY);
+            //4.
+            // console.log(ev.target);
+        // }
+       
+            //鼠标拖拽自己写的
+        // var box = document.getElementsByClassName("box");
+        // var body=document.body;
+        // var x,y;
+
+        //     //按下，获取鼠标坐标值
+        //     box.onmousedown=function(ev){
+        //         console.log("down");
+        //         var mx=ev.clientX;//鼠标距离浏览器左
+        //         var my=ev.clientY;//鼠标距离浏览器上
+
+        //         var bx=box.offsetLeft;//鼠标距离事件源左
+        //         var by=box.offsetTop;//鼠标距离事件源上
+                
+        //         x=mx-bx;//实际盒子距离浏览器左
+        //         y=my-by;//实际盒子距离浏览器上
+                
+        //         //移动
+        //         body.onmousemove==function(ev){
+        //         //获取当前鼠标坐标
+        //         var mx=ev.clientX;
+        //         var my=ev.clientY;
+                
+        //         //盒子距离浏览器
+        //         box.style.left=mx-x+"px";
+        //         box.style.top=my-y+"px";
+        //     };
+        //             //抬起
+        //     box.onmouseup=function(ev){
+        //         body.onmousemove=null;
+        //         //获取当前鼠标移动到的坐标点
+        //         var mx=ev.clientX;
+        //         var my=ev.clientY;
+
+        //         box.style.left=mx-x+"px";
+        //         box.style.top=my-y+"px";
+        //     }
+        // }
+        
+
+            //鼠标拖拽老师写的
+        var div=document.querySelector("div");
+n 
+        div.onmousedown=function(ev){
+            console.log("down");
+            var startx=ev.offsetX;
+            var starty=ev.offsetY;
+            document.onmousemove = function(ev){
+                var movex=ev.clientX;
+                var movey=ev.clientY;
+                div.style.left=movex-startx+"px";
+                div.style.top=movey-starty+"px";
+                ev.preventDefault();//浏览器默认 
+            }
+            document.onmouseup=function(ev){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

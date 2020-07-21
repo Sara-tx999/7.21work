@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            position: relative;
+            margin: 200px;
+        }
+        .two{
+            width: 100px;
+            height: 100px;
+            background: royalblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="two"></div>
+    </div>
+
+    <script src="drag.js"></script>
+    <script>
+        var dragObj=new drag(".two");
+        dragObj.side.x1=0;
+        dragObj.side.x2=300;
+        dragObj.side.y1=0;
+        dragObj.side.y2=300;
+        dragObj.move(function(){
+            this.style.background="orange";
+        });
+        // dragObj.y=false;
+        // dragObj.sidex=[0,100];
+        // dragObj.sidey=[0,100];
+    </script>
+    <!-- <script>
+        var div=document.querySelector(".two");
+        div.onmousedown=function(ev){
+            //console.log("down");
+            var cx=ev.clientX;
+            var cy=ev.clientY;
+            var ox=div.offsetLeft;
+            var oy=div.offsetTop;
+
+            var downx=cx-ox;
+            var downy=cy-oy;
+            document.onmousemove = function(ev){
+                var movex=ev.clientX;
+                var movey=ev.clientY;
+                div.style.left=movex-downx+"px";
+                div.style.top=movey-downy+"px";
+                ev.preventDefault();//浏览器默认 
+            }
+            document.onmouseup=function(ev){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+
+        }
+    </script> -->
+</body>
+</html>
